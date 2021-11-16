@@ -1,20 +1,42 @@
-function DRINKS_HASH_FUNC() {
-    constructor() {
+// Window.prototype.DrinksHashClass = function() {
+//     const drinks = {
+
+//     }
+//     DrinksHashClass.prototype.addValue = function() {
+
+//     }
+
+//     DrinksHashClass.prototype.getValue = function() {
+
+//     }
+
+//     DrinksHashClass.prototype.deleteValue = function() {
+
+//     }
+
+//     DrinksHashClass.prototype.getKeys = function() {
+
+//     }
+// }
+
+class DrinksHashClass {
+    constructor({value}) {
+        this.value = value;
+    }
+
+    addValue(key, value) {
+        
+    }
+
+    getValue() {
 
     }
-    DRINKS_HASH_FUNC.prototype.addValue = function() {
+
+    deleteValue() {
 
     }
 
-    DRINKS_HASH_FUNC.prototype.getValue = function() {
-
-    }
-
-    DRINKS_HASH_FUNC.prototype.deleteValue = function() {
-
-    }
-
-    DRINKS_HASH_FUNC.prototype.getKeys = function() {
+    getKeys() {
 
     }
 }
