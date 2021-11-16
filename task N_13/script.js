@@ -19,24 +19,24 @@
 //     }
 // }
 
-class DrinksHashClass {
-    constructor({value}) {
-        this.value = value;
-    }
+function HashStorageFunc(drink, info) {
 
-    addValue(key, value) {
+    return {drink: info};
+
+    // addValue(key, value) {
         
-    }
+    // }
 
-    getValue() {
+    // getValue() {
 
-    }
+    // }
 
-    deleteValue() {
+    // deleteValue() {
 
-    }
+    // }
 
-    getKeys() {
+    // getKeys() {
 
-    }
+    // }
 }
+
