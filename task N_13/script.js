@@ -45,3 +45,12 @@ const drinkStorage = new HashStorageFunc('Budweiser', {
     'info': 'Budweiser - легкий, ароматный, свежий лагер в американском стиле. Сварено из лучшего ячменного солода и смеси премиальных сортов хмеля.'
 });
 
+const bodyHtml = [
+    {type: 'form'},
+    {type: 'input'},
+];
+
+var $html = document.getElementById('html');
+
+$html.title = 'Bue';
+
