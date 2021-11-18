@@ -48,7 +48,8 @@ const drinkStorage = new HashStorageFunc('Budweiser', {
 const $html = document.getElementById('html');
 var nameDrinkHtml,
     typeDrink,
-    alcoholic;
+    alcoholic,
+    info;
 
 $html.insertAdjacentHTML('beforeend', text());
 
@@ -84,22 +85,18 @@ function text() {
         </div>
         <div id="infoAboutDrinks" class="infoAboutDrinks">
             <div id="infoAboutDrinks__info" class="form__infoAboutDrinks"></div> 
-            <input id="infoAboutDrinks__clos" class="form__infoAboutDrinks_clos" type="button" value="Ok">
+            <input id="infoAboutDrinks__clos" class="form__infoAboutDrinks_clos" type="button" value="Закрыть">
         </div>
         <div class="form_check">
             <input id="deleteDrink" class="form__check" type="button" value="Удалить напиток"> 
             <input type="text" name="checkNameDrink" id="checkNameDrinkDelete" autocomplete="off" placeholder="Введите название напитка">
-        </div>
-        <div id="infoAboutDrinksDelete" class="infoAboutDrinks">
-            <div id="infoAboutDrinks_delete__info" class="form__infoAboutDrinks"></div>
-            <input id="infoAboutDrinks_delete__clos" class="form__infoAboutDrinks_clos" type="button" value="Ok">
         </div>
         <div class="form_check">
             <input id="show__all" class="form__check" type="button" value="Все наши напитки"> 
         </div>
         <div id="show__drinks" class="infoAboutDrinks">
             <div id="show__drinks__info" class="form__infoAboutDrinks"></div>
-            <input id="show__drinks__clos" class="form__infoAboutDrinks_clos" type="button" value="Ok">
+            <input id="show__drinks__clos" class="form__infoAboutDrinks_clos" type="button" value="Закрыть">
         </div>
     </form>`
 };
@@ -110,23 +107,25 @@ const clickFormStart = document.getElementById('giveDrink');
 const formStart = document.getElementById('formStart');
 
 clickFormStart.onclick = function () {
-    formStart.classList.toggle('active');
+    formStart.classList.add('active');
 };
 
 function checkForm(el) {
-    
-    nameDrinkHtml = el.nameDrinkHtml.value;
-    typeDrink = el.typeDrink.value;
-    alcoholic = el.alcoholic.value;
-    info = el.info.value;
+    if (el.nameDrinkHtml.value != '') {
+        nameDrinkHtml = el.nameDrinkHtml.value;
+        typeDrink = el.typeDrink.value;
+        alcoholic = el.alcoholic.value;
+        info = el.info.value;
 
-    drinkStorage.addValue(nameDrinkHtml, {
-        'type': typeDrink,
-        'alcoholic': alcoholic,
-        'info': info
-    });
+        drinkStorage.addValue(nameDrinkHtml, {
+            'type': typeDrink,
+            'alcoholic': alcoholic,
+            'info': info
+        });
+    }
 
-    formStart.classList.toggle('active');
+
+    formStart.classList.remove('active');
     el.nameDrinkHtml.value = '';
     el.typeDrink.value = '';
     el.info.value = '';
@@ -142,26 +141,25 @@ const infoAboutDrinksClos = document.getElementById('infoAboutDrinks__clos');
 
 checkDrink.onclick = function () {
 
-    infoAboutDrinks.classList.add('activeCheckDrink');
+    infoAboutDrinks.classList.add('active');
 
     let infor = document.getElementById('infoAboutDrinks__info');
     let checkName = document.getElementById('checkNameDrink').value;
 
     if (drinkStorage.getKeys().includes(checkName)) {
-        let acc = drinkStorage.getValue(checkName).info;
         let accAlc;
 
-        if (drinkStorage.getValue(checkName).alcoholic) {
-            accAlc = 'Алкогольный';
+        if (drinkStorage.getValue(checkName).alcoholic == 'Алкогольный напиток') {
+            accAlc = 'Да';
         } else {
-            accAlc = 'Безалкогольный';
+            accAlc = 'Нет';
         };
 
         infor.innerHTML = '';
-        infor.insertAdjacentHTML('beforeend', `напиток: ${checkName}<br>
-        тип напитка: ${drinkStorage.getValue(checkName).type}<br>
-        алкогольный: ${accAlc}<br>
-        информация о напитке: ${drinkStorage.getValue(checkName).info}`);
+        infor.insertAdjacentHTML('beforeend', `Напиток: ${checkName}<br>
+        Тип напитка: ${drinkStorage.getValue(checkName).type}<br>
+        Алкогольный: ${accAlc}<br>
+        Информация о напитке: ${drinkStorage.getValue(checkName).info}`);
     } else {
         infor.innerHTML = '';
         infor.insertAdjacentHTML('beforeend', 'Напитка с таким именнем у нас нет');
@@ -172,7 +170,7 @@ infoAboutDrinksClos.onclick = function () {
 
     let infor = document.getElementById('infoAboutDrinks__info');
 
-    infoAboutDrinks.classList.remove('activeCheckDrink');
+    infoAboutDrinks.classList.remove('active');
     infor.innerHTML = '';
 }
 
@@ -184,28 +182,16 @@ const infoAboutDrinksDeleteClos = document.getElementById('infoAboutDrinks_delet
 
 deleteDrink.onclick = function () {
 
-    infoAboutDrinksDelete.classList.add('activeDeleteDrink');
-
     let infor = document.getElementById('infoAboutDrinks_delete__info');
     let checkName = document.getElementById('checkNameDrinkDelete').value;
 
     if (drinkStorage.getKeys().includes(checkName)) {
         drinkStorage.deleteValue(checkName);
-        infor.innerHTML = '';
-        infor.insertAdjacentHTML('beforeend', `Напиток удалён`);
+        alert(`Напиток удалён`);
     } else {
-        infor.innerHTML = '';
-        infor.insertAdjacentHTML('beforeend', 'Напитка с таким именнем у нас нет');
+        alert('Напитка с таким именнем у нас нет');
     }
 };
-
-infoAboutDrinksDeleteClos.onclick = function () {
-
-    let infor = document.getElementById('infoAboutDrinks_delete__info');
-    
-    infoAboutDrinksDelete.classList.remove('activeDeleteDrink');
-    infor.innerHTML = '';
-}
 
 //    Show keys All Elements
 
@@ -215,11 +201,12 @@ const showDrinksClos = document.getElementById('show__drinks__clos');
 const showDrinkInfo = document.getElementById('show__drinks__info');
 
 showAll.onclick = function () {
-    showDrinks.classList.add('activeShow');
+    showDrinks.classList.add('active');
+    showDrinkInfo.innerHTML = '';
     showDrinkInfo.insertAdjacentHTML('beforeend', `${drinkStorage.getKeys()}`);
 }
 
 showDrinksClos.onclick = function () {
-    showDrinks.classList.remove('activeShow');
+    showDrinks.classList.remove('active');
     showDrinkInfo.innerHTML = '';
 }
