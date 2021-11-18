@@ -40,47 +40,99 @@ function HashStorageFunc(drink, nameDrink) {
 }
 
 const drinkStorage = new HashStorageFunc('Budweiser', {
-    'type': 'beer',
+    'type': 'Пиво',
     'alcoholic': true,
     'info': 'Budweiser - легкий, ароматный, свежий лагер в американском стиле. Сварено из лучшего ячменного солода и смеси премиальных сортов хмеля.'
 });
 
-// var $html = document.getElementById('html');
+const $html = document.getElementById('html');
+var nameDrinkHtml,
+    typeDrink,
+    alcoholic;
 
-// $html.innerHTML('Hollo World');
+// $html.insertAdjacentHTML('beforeend', text());
 
-// html.insertAdjacentHTML('beforeend', text());
+// function text() {
+//         
+// };
 
-let a = document.getElementsByClassName('body');
-let b = `<div>Sey Hi</div>`;
+//         Add  Element
 
-a.innerHTML = text();
+const clickFormStart = document.getElementById('giveDrink');
+const formStart = document.getElementById('formStart');
 
-function text() {
-    return `<h1>Любимые напитки</h1>
-    <form class="form">
-        <input class="form__start" type="button" value="Добавить напиток">
-        <div class="form__interes">
-            <label for="nameDrink">Введите название напитка</label>
-            <input type="text" name="nameDrink" id="nameDrink">
-            <label for="type">Введите тип напитка</label>
-            <input type="text" name="type" id="type">
-            <div>
-                <label for="alcoholic">Является ли ваш напиток алкагольным?</label>
-                <div class="alcoholicTrue">
-                    <label for="">Да:</label>
-                    <input type="radio" name="alcoholic" id="alcoholicTrue">
-                </div>
-                <div>
-                    <label for="">Нет:</label>
-                    <input type="radio" name="alcoholic" id="alcoholicFalse">
-                </div>
-            </div>
-            <textarea name="info" id="info" rows="10"></textarea>
-            <input class="button__form"
-                type="button"
-                value="Сохранить информацию о напитке"
-                size="50px">
-        </div>    
-    </form>`
+clickFormStart.onclick = function () {
+    formStart.classList.toggle('active');
 };
+
+function checkForm(el) {
+    nameDrinkHtml = el.nameDrinkHtml.value;
+    typeDrink = el.typeDrink.value;
+    alcoholic = el.alcoholic.value;
+    info = el.info.value;
+    drinkStorage.addValue(nameDrinkHtml, {
+        'type': typeDrink,
+        'alcoholic': alcoholic,
+        'info': info
+    })
+    formStart.classList.toggle('active');
+    el.nameDrinkHtml.value = '';
+    el.typeDrink.value = '';
+    el.info.value = '';
+    return false
+}
+
+//       Show Element
+
+const checkDrink = document.getElementById('checkDrink');
+const infoAboutDrinks = document.getElementById('infoAboutDrinks');
+const infoAboutDrinksClos = document.getElementById('infoAboutDrinks__clos');
+
+checkDrink.onclick = function () {
+    infoAboutDrinks.classList.add('activeCheckDrink');
+    let infor = document.getElementById('infoAboutDrinks__info');
+    let checkName = document.getElementById('checkNameDrink').value;
+    if (drinkStorage.getKeys().includes(checkName)) {
+        let acc = drinkStorage.getValue(checkName).info;
+        infor.innerHTML = '';
+        infor.insertAdjacentHTML('beforeend', `${acc}`);
+    } else {
+        infor.innerHTML = '';
+        infor.insertAdjacentHTML('beforeend', 'Напитка с таким именнем у нас нет')
+    }
+};
+
+infoAboutDrinksClos.onclick = function () {
+    let infor = document.getElementById('infoAboutDrinks__info');
+    infoAboutDrinks.classList.remove('activeCheckDrink');
+    infor.innerHTML = '';
+}
+
+//   Delete Element
+
+const deleteDrink = document.getElementById('deleteDrink');
+const infoAboutDrinksDelete = document.getElementById('infoAboutDrinksDelete');
+const infoAboutDrinksDeleteClos = document.getElementById('infoAboutDrinks_delete__clos');
+
+deleteDrink.onclick = function () {
+    infoAboutDrinksDelete.classList.add('activeDeleteDrink');
+    let infor = document.getElementById('infoAboutDrinks_delete__info');
+    let checkName = document.getElementById('checkNameDrinkDelete').value;
+    if (drinkStorage.getKeys().includes(checkName)) {
+        drinkStorage.deleteValue(checkName);
+        infor.innerHTML = '';
+        infor.insertAdjacentHTML('beforeend', `Напиток удалён`);
+    } else {
+        infor.innerHTML = '';
+        infor.insertAdjacentHTML('beforeend', 'Напитка с таким именнем у нас нет')
+    }
+};
+
+infoAboutDrinksDeleteClos.onclick = function () {
+    let infor = document.getElementById('infoAboutDrinks_delete__info');
+    infoAboutDrinksDelete.classList.remove('activeDeleteDrink');
+    infor.innerHTML = '';
+}
+
+//    Show keys All Elements
+
