@@ -66,11 +66,11 @@ function text() {
                 <label for="alcoholic">Является ли ваш напиток алкагольным?</label>
                 <div class="alcoholicTrue">
                     <label for="">Да:</label>
-                    <input type="radio" name="alcoholic" id="alcoholicTrue" value="Алкогольный напиток">
+                    <input type="radio" name="alcoholic" id="alcoholicTrue" value="true">
                 </div>
                 <div>
                     <label for="">Нет:</label>
-                    <input type="radio" name="alcoholic" id="alcoholicFalse" value="Безалкогольный напиток">
+                    <input type="radio" name="alcoholic" id="alcoholicFalse" value="false">
                 </div>
             </div>
             <textarea autocomplete="off" name="info" id="info" rows="10"></textarea>
@@ -149,7 +149,7 @@ checkDrink.onclick = function () {
     if (drinkStorage.getKeys().includes(checkName)) {
         let accAlc;
 
-        if (drinkStorage.getValue(checkName).alcoholic == 'Алкогольный напиток') {
+        if (drinkStorage.getValue(checkName).alcoholic == true) {
             accAlc = 'Да';
         } else {
             accAlc = 'Нет';
