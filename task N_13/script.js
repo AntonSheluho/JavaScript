@@ -37,13 +37,11 @@ function HashStorageFunc(drink, nameDrink) {
         }
         return acc;
     }
+
+    self.deleteValue('undefined');
 }
 
-const drinkStorage = new HashStorageFunc('Budweiser', {
-    'type': 'Пиво',
-    'alcoholic': true,
-    'info': 'Budweiser - легкий, ароматный, свежий лагер в американском стиле. Сварено из лучшего ячменного солода и смеси премиальных сортов хмеля.'
-});
+const drinkStorage = new HashStorageFunc()
 
 const $html = document.getElementById('html');
 var nameDrinkHtml,
@@ -95,7 +93,7 @@ function text() {
             <input id="show__all" class="form__check" type="button" value="Все наши напитки"> 
         </div>
         <div id="show__drinks" class="infoAboutDrinks">
-            <div id="show__drinks__info" class="form__infoAboutDrinks"></div>
+            <div id="show__drinks__info" class="form__infoAboutDrinks">Пусто</div>
             <input id="show__drinks__clos" class="form__infoAboutDrinks_clos" type="button" value="Закрыть">
         </div>
     </form>`
@@ -202,8 +200,13 @@ const showDrinkInfo = document.getElementById('show__drinks__info');
 
 showAll.onclick = function () {
     showDrinks.classList.add('active');
-    showDrinkInfo.innerHTML = '';
-    showDrinkInfo.insertAdjacentHTML('beforeend', `${drinkStorage.getKeys()}`);
+    console.log(showDrinkInfo)
+    if (drinkStorage.getKeys().length != 0) {
+        showDrinkInfo.innerHTML = '';
+        showDrinkInfo.insertAdjacentHTML('beforeend', `${drinkStorage.getKeys()}`);
+    } else if (drinkStorage.getKeys()[0] == undefined && drinkStorage.getKeys().length == 0) {
+        showDrinkInfo.innerHTML = 'Пусто';
+    }
 }
 
 showDrinksClos.onclick = function () {
