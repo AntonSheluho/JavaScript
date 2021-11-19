@@ -1,27 +1,27 @@
-function HashStorageFunc(drink, nameDrink) {
-    const self = this;
-    self[drink] = nameDrink;
-    
+class HashStorageClass {
 
-    HashStorageFunc.prototype.addValue = function(key,value) {
-        self[key] = value;
+    constructor() {
     }
 
-    HashStorageFunc.prototype.getValue = function(key) {
-        console.log(self[key])
-        return self[key];
+    addValue(key,value) {
+        this[key] = value;
     }
 
-    HashStorageFunc.prototype.deleteValue = function(key) {
-        const a = Object.entries(self);
+    getValue(key) {
+        console.log(this[key])
+        return this[key];
+    }
+
+    deleteValue(key) {
+        const a = Object.entries(this);
         let acc;
 
         for (let i = 0; i < a.length; i++) {
 
             if (a[i][0] == key) {
                acc = key;
-               delete self[acc];
-               console.log(self);
+               delete this[acc];
+               console.log(this);
                return true
             }
         }
@@ -30,18 +30,16 @@ function HashStorageFunc(drink, nameDrink) {
         return false
     }
 
-    HashStorageFunc.prototype.getKeys = function() {
+    getKeys() {
         let acc = [];
-        for (let [key, value] of Object.entries(self)) {
+        for (let [key, value] of Object.entries(this)) {
             acc[acc.length] = key;
         }
         return acc;
     }
-
-    self.deleteValue('undefined');
 }
 
-const drinkStorage = new HashStorageFunc()
+const drinkStorage = new HashStorageClass()
 
 const $html = document.getElementById('html');
 var nameDrinkHtml,
@@ -146,8 +144,8 @@ checkDrink.onclick = function () {
 
     if (drinkStorage.getKeys().includes(checkName)) {
         let accAlc;
-
-        if (drinkStorage.getValue(checkName).alcoholic == true) {
+        console.log(`this alc: ${drinkStorage.getValue(checkName).alcoholic == true}`)
+        if (drinkStorage.getValue(checkName)['alcoholic'] == 'true') {
             accAlc = 'Да';
         } else {
             accAlc = 'Нет';
