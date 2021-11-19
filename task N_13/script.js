@@ -147,7 +147,7 @@ checkDrink.onclick = function () {
     if (drinkStorage.getKeys().includes(checkName)) {
         let accAlc;
 
-        if (drinkStorage.getValue(checkName).alcoholic == true) {
+        if (drinkStorage.getValue(checkName)['alcoholic'] == 'true') {
             accAlc = 'Да';
         } else {
             accAlc = 'Нет';
