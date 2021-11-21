@@ -57,17 +57,11 @@ function vowels(str) {
     
     let reduceAcc = [];
     acc.reduce(function(ac, el) {
-        console.log(ac)
-        console.log(el)
-        console.log(`if ac ${vow.includes(ac)}`)
-        console.log(`if ac ${vow.includes(el)}`)
         if (vow.includes(ac) && vow.includes(el)) {
             reduceAcc[reduceAcc.length] = ac;
             reduceAcc[reduceAcc.length] = el;
-            console.log(`redAcc: ${reduceAcc}`)
         } else if (vow.includes(el)) {
             reduceAcc[reduceAcc.length] = el;
-            console.log(`redAcc: ${reduceAcc}`)
         } else if (vow.includes(ac)) {
             reduceAcc[reduceAcc.length] = ac;
         }
