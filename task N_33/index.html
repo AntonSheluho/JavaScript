@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="head">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script.js" defer></script>
+    <title>CLOCK_DOM</title>
+</head>
+<body id="body">
+    <form id="formForEnter">
+        <label for="enter">Введите диаметр циферблата от 200 до 800:</label>
+        <input id="clockDiameter" type="number" name="enter">
+        <input id="buttOk" type="button" value="Построить часы">
+    </form>
+    <div id="clock">
+        <div id="clockDiv">
+            <div id="numberClock"></div>
+            <div id="hourArrow">
+                <div id="hourArrowBefore"></div>
+            </div>
+            <div id="minArrow">
+                <div id="minArrowBefore"></div>
+            </div>
+            <div id="secArrow">
+                <div id="secArrowBefore"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
