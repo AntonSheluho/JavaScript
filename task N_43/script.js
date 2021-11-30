@@ -1,3 +1,8 @@
+//                            Вёрстка HTML:
+
+/*
+    Body HTML 
+*/
 const body = document.getElementById('body');
 
 body.style.cssText = `
@@ -9,6 +14,10 @@ body.style.cssText = `
     align-items: center;
 `;
 
+/*
+    Game field
+*/
+
 const centerDiv = document.createElement('div');
 
 centerDiv.style.cssText = `
@@ -17,6 +26,10 @@ centerDiv.style.cssText = `
 `;
 
 body.insertAdjacentElement('afterbegin', centerDiv);
+
+/*
+    Score field
+*/    
 
 const form = document.createElement('form');
 
@@ -31,12 +44,6 @@ form.style.cssText = `
 
 centerDiv.insertAdjacentElement('afterbegin', form);
 
-const label = document.createElement('label');
-
-label.style.cssText = `
-
-`
-
 const button = document.createElement('input');
 
 button.type = 'button';
@@ -47,7 +54,7 @@ button.style.cssText = `
 `;
 
 form.insertAdjacentElement('afterbegin', button);
-
+   
 class Score {
     constructor(side, score) {
         this.side = side,
@@ -63,10 +70,34 @@ class Score {
             scoresRight.innerHTML = `${this.score}`
         }
     }
+
+    pushUp() {
+        if (this.score > 0) {
+            this.score -= 10
+        } 
+    }
+    pushDown() {
+        if (this.score < 460) {
+            this.score += 10
+        } 
+    }
+
+    moveUp() {
+        this.score += 1;
+        console.log(this.score)
+    }
+    moveDown() {
+        this.score -= 1;
+        console.log(this.score)
+    }
 }
 
 const leftPlayer = new Score('left', 0);
 const rightPlayer = new Score('right', 0);
+
+/*
+    Tennis field
+*/ 
 
 const scoresField = document.createElement('div');
 const scoresLeft = document.createElement('div');
@@ -96,9 +127,138 @@ const gameField = document.createElement('div');
 
 gameField.style.cssText = `
     width: 1000px;
-    height: 556px;
+    height: 560px;
     background: #10bdc066;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border: solid 1px black;
 `;
 
 centerDiv.insertAdjacentElement('beforeend', gameField);
 
+const leftCase = document.createElement('div')
+const rightCase = document.createElement('div')
+const boll = document.createElement('div')
+
+boll.style.cssText = `
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+`;
+leftCase.style.cssText = `
+    position: relative;
+    width: 10px;
+    height: 560px;
+`;
+rightCase.style.cssText = `
+    position: relative;
+    width: 10px;
+    height: 560px;
+`;
+
+gameField.insertAdjacentElement('beforeend', leftCase);
+gameField.insertAdjacentElement('beforeend', rightCase);
+gameField.insertAdjacentElement('beforeend', boll);
+
+const leftCaseRocket = document.createElement('div');
+const rightCaseRocket = document.createElement('div');
+const leftRocket = new Score('left', 0);
+const rightRocket = new Score('right', 0);
+
+leftCaseRocket.style.cssText = `
+    width: 10px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+`;
+rightCaseRocket.style.cssText = `
+    width: 10px;
+    height: 100px;
+    background-color: blue;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+`;
+
+leftCase.insertAdjacentElement('beforeend', leftCaseRocket);
+rightCase.insertAdjacentElement('beforeend', rightCaseRocket);
+
+//                                             Анимация JavaScript:
+
+/*
+    Rockets movement
+*/
+document.addEventListener('keydown', pushRocket)
+
+function pushRocket(event) {
+    switch (event.keyCode) {
+        case 16: {
+            leftRocket.pushUp()
+            leftCaseRocket.style.top = `${leftRocket.score}px`;
+            break
+        };
+        case 17: {
+            leftRocket.pushDown()
+            leftCaseRocket.style.top = `${leftRocket.score}px`;
+            break
+        };
+        case 38: {
+            rightRocket.pushUp()
+            rightCaseRocket.style.top = `${rightRocket.score}px`;
+            break
+        };
+        case 40: {
+            rightRocket.pushDown()
+            rightCaseRocket.style.top = `${rightRocket.score}px`;
+            break
+        };
+    }
+}
+
+/*
+    Boll movement
+*/
+const bollLeft = new Score('left', 500);
+const bollTop = new Score('top', 235);
+
+boll.style.left = `${bollLeft.score}px`
+boll.style.top = `${bollTop.score}px`
+
+function getRandomNumber() {
+        return Math.floor(Math.random() * 4);
+    }
+
+function moveBollOnTheRightDown() {
+    bollTop.moveUp();
+    bollLeft.moveUp();
+    boll.style.top = `${bollTop.score}px`
+    boll.style.left = `${bollLeft.score}px`
+}
+function moveBollOnTheRightUp() {
+    bollTop.moveDown();
+    bollLeft.moveUp();
+    boll.style.top = `${bollTop.score}px`
+    boll.style.left = `${bollLeft.score}px`
+}
+function moveBollOnTheLeftDown() {
+    bollTop.moveUp();
+    bollLeft.moveDown();
+    boll.style.top = `${bollTop.score}px`
+    boll.style.left = `${bollLeft.score}px`
+}
+function moveBollOnTheLeftUp() {
+    bollTop.moveDown();
+    bollLeft.moveDown();
+    boll.style.top = `${bollTop.score}px`
+    boll.style.left = `${bollLeft.score}px`
+}
+
+button.onclick = function() {
+
+    setInterval(moveBollOnTheLeftDown, 10)
+}
