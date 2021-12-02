@@ -84,11 +84,9 @@ class Score {
 
     moveUp() {
         this.score += 1;
-        console.log(this.score)
     }
     moveDown() {
         this.score -= 1;
-        console.log(this.score)
     }
 }
 
@@ -260,5 +258,40 @@ function moveBollOnTheLeftUp() {
 
 button.onclick = function() {
 
-    setInterval(moveBollOnTheLeftDown, 10)
+    switch (getRandomNumber()){
+        case 0: {
+            setInterval(moveBollOnTheRightDown, 20);
+            break
+        };
+        case 1: {
+            setInterval(moveBollOnTheRightUp, 20);
+            break
+        };
+        case 2: {
+            setInterval(moveBollOnTheLeftDown, 20);
+            break
+        };
+        case 3: {
+            setInterval(moveBollOnTheLeftUp, 20);
+            break
+        };
+    }
+
 }
+const whereIsBoll = new Event(look);
+document.dispatchEvent(whereIsBoll);
+boll.addEventListener('DOMNodeInserted', () => {console.log(boll.style.top)})
+
+const bollEvent = setInterval(() => {
+    const bollTop = parseInt(window.getComputedStyle(boll).getPropertyValue('top'));
+    const bollLeft = parseInt(window.getComputedStyle(boll).getPropertyValue('left'));
+    console.log(bollTop + '', bollLeft)
+
+    if (bollTop == 0 && bollLeft < 500) {
+        moveBollOnTheLeftDown();
+    } else if (bollTop > 0 && bollLeft == 0) {
+        moveBollOnTheLeftUp();
+    } else if (bollTop == 522 && bollLeft > 0) {
+        moveBollOnTheRightUp();
+    }
+}, 10)
