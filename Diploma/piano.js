@@ -40,18 +40,18 @@ title.textContent = `Вы можете выбрать шаблон:`
 const piano = document.createElement('div');
 const keyDo1 = document.createElement('div');
 const keyRe1 = document.createElement('div');
-const keyMy1 = document.createElement('div');
-const keyFu1 = document.createElement('div');
+const keyMi1 = document.createElement('div');
+const keyFa1 = document.createElement('div');
 const keySol1 = document.createElement('div');
-const keyLea1 = document.createElement('div');
-const keySee1 = document.createElement('div');
+const keyLya1 = document.createElement('div');
+const keySi1 = document.createElement('div');
 const keyDo2 = document.createElement('div');
 const keyRe2 = document.createElement('div');
-const keyMy2 = document.createElement('div');
-const keyFu2 = document.createElement('div');
+const keyMi2 = document.createElement('div');
+const keyFa2 = document.createElement('div');
 const keySol2 = document.createElement('div');
-const keyLea2 = document.createElement('div');
-const keySee2 = document.createElement('div');
+const keyLya2 = document.createElement('div');
+const keySi2 = document.createElement('div');
 const keyDo3 = document.createElement('div');
 const key = `
     width: 6.66%;
@@ -66,18 +66,18 @@ const key = `
 
 keyDo1.style.cssText = `${key}`;
 keyRe1.style.cssText = `${key}`;
-keyMy1.style.cssText = `${key}`;
-keyFu1.style.cssText = `${key}`;
+keyMi1.style.cssText = `${key}`;
+keyFa1.style.cssText = `${key}`;
 keySol1.style.cssText = `${key}`;
-keyLea1.style.cssText = `${key}`;
-keySee1.style.cssText = `${key}`;
+keyLya1.style.cssText = `${key}`;
+keySi1.style.cssText = `${key}`;
 keyDo2.style.cssText = `${key}`;
 keyRe2.style.cssText = `${key}`;
-keyMy2.style.cssText = `${key}`;
-keyFu2.style.cssText = `${key}`;
+keyMi2.style.cssText = `${key}`;
+keyFa2.style.cssText = `${key}`;
 keySol2.style.cssText = `${key}`;
-keyLea2.style.cssText = `${key}`;
-keySee2.style.cssText = `${key}`;
+keyLya2.style.cssText = `${key}`;
+keySi2.style.cssText = `${key}`;
 keyDo3.style.cssText = `${key}`;
 
 piano.style.cssText = `
@@ -90,18 +90,18 @@ piano.style.cssText = `
 
 keyDo1.innerHTML = `<strong>A</strong> (До)`;
 keyRe1.innerHTML = `<strong>S</strong> (Ре)`;
-keyMy1.innerHTML = `<strong>D</strong> (Ми)`;
-keyFu1.innerHTML = `<strong>F</strong> (Фа)`;
+keyMi1.innerHTML = `<strong>D</strong> (Ми)`;
+keyFa1.innerHTML = `<strong>F</strong> (Фа)`;
 keySol1.innerHTML = `<strong>G</strong> (Соль)`;
-keyLea1.innerHTML = `<strong>H</strong> (Ля)`;
-keySee1.innerHTML = `<strong>J</strong> (Си)`;
+keyLya1.innerHTML = `<strong>H</strong> (Ля)`;
+keySi1.innerHTML = `<strong>J</strong> (Си)`;
 keyDo2.innerHTML = `<strong>K</strong> (До)`;
 keyRe2.innerHTML = `<strong>L</strong> (Ре)`;
-keyMy2.innerHTML = `<strong>:</strong> (Ми)`;
-keyFu2.innerHTML = `<strong>"</strong> (Фа)`;
+keyMi2.innerHTML = `<strong>:</strong> (Ми)`;
+keyFa2.innerHTML = `<strong>"</strong> (Фа)`;
 keySol2.innerHTML = `<strong>|</strong> (Соль)`;
-keyLea2.innerHTML = `<strong>4</strong> (Ля)`;
-keySee2.innerHTML = `<strong>5</strong> (Си)`;
+keyLya2.innerHTML = `<strong>4</strong> (Ля)`;
+keySi2.innerHTML = `<strong>5</strong> (Си)`;
 keyDo3.innerHTML = `<strong>6</strong> (До)`;
 
 body.insertAdjacentElement('afterbegin', bodyShadow);
@@ -110,57 +110,73 @@ body.insertAdjacentElement('beforeend', piano);
 note.insertAdjacentElement('beforeend', title);
 piano.insertAdjacentElement('beforeend', keyDo1);
 piano.insertAdjacentElement('beforeend', keyRe1);
-piano.insertAdjacentElement('beforeend', keyMy1);
-piano.insertAdjacentElement('beforeend', keyFu1);
+piano.insertAdjacentElement('beforeend', keyMi1);
+piano.insertAdjacentElement('beforeend', keyFa1);
 piano.insertAdjacentElement('beforeend', keySol1);
-piano.insertAdjacentElement('beforeend', keyLea1);
-piano.insertAdjacentElement('beforeend', keySee1);
+piano.insertAdjacentElement('beforeend', keyLya1);
+piano.insertAdjacentElement('beforeend', keySi1);
 piano.insertAdjacentElement('beforeend', keyDo2);
 piano.insertAdjacentElement('beforeend', keyRe2);
-piano.insertAdjacentElement('beforeend', keyMy2);
-piano.insertAdjacentElement('beforeend', keyFu2);
+piano.insertAdjacentElement('beforeend', keyMi2);
+piano.insertAdjacentElement('beforeend', keyFa2);
 piano.insertAdjacentElement('beforeend', keySol2);
-piano.insertAdjacentElement('beforeend', keyLea2);
-piano.insertAdjacentElement('beforeend', keySee2);
+piano.insertAdjacentElement('beforeend', keyLya2);
+piano.insertAdjacentElement('beforeend', keySi2);
 piano.insertAdjacentElement('beforeend', keyDo3);
+
+const audioDo1 = new Audio('./audio/do.mp3');
+const audioRe1 = new Audio('./audio/re.mp3');
+const audioMi1 = new Audio('./audio/mi.mp3');
+const audioFa1 = new Audio('./audio/fa.mp3');
+const audioSol1 = new Audio('./audio/sol.mp3');
+const audioLya1 = new Audio('./audio/lya.mp3');
+const audioSi1 = new Audio('./audio/si.mp3');
+const audioDo2 = new Audio('./audio/doVtoroyOktave.mp3');
+const audioRe2 = new Audio('./audio/re.mp3');
+const audioMi2 = new Audio('./audio/mi.mp3');
+const audioFa2 = new Audio('./audio/fa.mp3');
+const audioSol2 = new Audio('./audio/sol.mp3');
+const audioLya2 = new Audio('./audio/lya.mp3');
+const audioSi2 = new Audio('./audio/si.mp3');
+const audioDo3 = new Audio('./audio/do.mp3');
 
 addEventListener('keydown', (event) => {
     switch (event.code) {
-        case 'KeyA': {keyDo1.style.backgroundColor = `red`; break};
-        case 'KeyS': {keyRe1.style.backgroundColor = `orange`; break};
-        case 'KeyD': {keyMy1.style.backgroundColor = `yellow`; break};
-        case 'KeyF': {keyFu1.style.backgroundColor = `green`; break};
-        case 'KeyG': {keySol1.style.backgroundColor = `blue`; break};
-        case 'KeyH': {keyLea1.style.backgroundColor = `indigo`; break};
-        case 'KeyJ': {keySee1.style.backgroundColor = `violet`; break};
-        case 'KeyK': {keyDo2.style.backgroundColor = `red`; break};
-        case 'KeyL': {keyRe2.style.backgroundColor = `orange`; break};
-        case 'Semicolon': {keyMy2.style.backgroundColor = `yellow`; break};
-        case 'Quote': {keyFu2.style.backgroundColor = `green`; break};
-        case 'Backslash': {keySol2.style.backgroundColor = `blue`; break};
-        case 'Numpad4': {keyLea2.style.backgroundColor = `indigo`; break};
-        case 'Numpad5': {keySee2.style.backgroundColor = `violet`; break};
-        case 'Numpad6': {keyDo3.style.backgroundColor = `red`; break};
+        case 'KeyA': {keyDo1.style.backgroundColor = `red`; audioDo1.play(); break};
+        case 'KeyS': {keyRe1.style.backgroundColor = `orange`; audioRe1.play(); break};
+        case 'KeyD': {keyMi1.style.backgroundColor = `yellow`; audioMi1.play(); break};
+        case 'KeyF': {keyFa1.style.backgroundColor = `green`; audioFa1.play(); break};
+        case 'KeyG': {keySol1.style.backgroundColor = `blue`; audioSol1.play(); break};
+        case 'KeyH': {keyLya1.style.backgroundColor = `indigo`; audioLya1.play(); break};
+        case 'KeyJ': {keySi1.style.backgroundColor = `violet`; audioSi1.play(); break};
+        case 'KeyK': {keyDo2.style.backgroundColor = `red`; audioDo2.play(); break};
+        case 'KeyL': {keyRe2.style.backgroundColor = `orange`; audioRe2.play(); break};
+        case 'Semicolon': {keyMi2.style.backgroundColor = `yellow`; audioMi2.play(); break};
+        case 'Quote': {keyFa2.style.backgroundColor = `green`; audioFa2.play(); break};
+        case 'Backslash': {keySol2.style.backgroundColor = `blue`; audioSol2.play(); break};
+        case 'Numpad4': {keyLya2.style.backgroundColor = `indigo`; audioLya2.play(); break};
+        case 'Numpad5': {keySi2.style.backgroundColor = `violet`; audioSi2.play(); break};
+        case 'Numpad6': {keyDo3.style.backgroundColor = `red`; audioDo3.play(); break};
     }
 })
 
 addEventListener('keyup', (event) => {
     switch (event.code) {
-        case 'KeyA': {keyDo1.style.backgroundColor = `white`; break}
-        case 'KeyS': {keyRe1.style.backgroundColor = `white`; break};
-        case 'KeyD': {keyMy1.style.backgroundColor = `white`; break};
-        case 'KeyF': {keyFu1.style.backgroundColor = `white`; break};
-        case 'KeyG': {keySol1.style.backgroundColor = `white`; break};
-        case 'KeyH': {keyLea1.style.backgroundColor = `white`; break};
-        case 'KeyJ': {keySee1.style.backgroundColor = `white`; break};
-        case 'KeyK': {keyDo2.style.backgroundColor = `white`; break};
-        case 'KeyL': {keyRe2.style.backgroundColor = `white`; break};
-        case 'Semicolon': {keyMy2.style.backgroundColor = `white`; break};
-        case 'Quote': {keyFu2.style.backgroundColor = `white`; break};
-        case 'Backslash': {keySol2.style.backgroundColor = `white`; break};
-        case 'Numpad4': {keyLea2.style.backgroundColor = `white`; break};
-        case 'Numpad5': {keySee2.style.backgroundColor = `white`; break};
-        case 'Numpad6': {keyDo3.style.backgroundColor = `white`; break};
+        case 'KeyA': {keyDo1.style.backgroundColor = `white`; audioDo1.load(); break}
+        case 'KeyS': {keyRe1.style.backgroundColor = `white`; audioRe1.load(); break};
+        case 'KeyD': {keyMi1.style.backgroundColor = `white`; audioMi1.load(); break};
+        case 'KeyF': {keyFa1.style.backgroundColor = `white`; audioFa1.load(); break};
+        case 'KeyG': {keySol1.style.backgroundColor = `white`; audioSol1.load(); break};
+        case 'KeyH': {keyLya1.style.backgroundColor = `white`; audioLya1.load(); break};
+        case 'KeyJ': {keySi1.style.backgroundColor = `white`; audioSi1.load(); break};
+        case 'KeyK': {keyDo2.style.backgroundColor = `white`; audioDo2.load(); break};
+        case 'KeyL': {keyRe2.style.backgroundColor = `white`; audioRe2.load(); break};
+        case 'Semicolon': {keyMi2.style.backgroundColor = `white`; audioMi2.load(); break};
+        case 'Quote': {keyFa2.style.backgroundColor = `white`; audioFa2.load(); break};
+        case 'Backslash': {keySol2.style.backgroundColor = `white`; audioSol2.load(); break};
+        case 'Numpad4': {keyLya2.style.backgroundColor = `white`; audioLya2.load(); break};
+        case 'Numpad5': {keySi2.style.backgroundColor = `white`; audioSi2.load(); break};
+        case 'Numpad6': {keyDo3.style.backgroundColor = `white`; audioDo3.load(); break};
     }
 })
 
