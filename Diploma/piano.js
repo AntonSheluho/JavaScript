@@ -55,7 +55,7 @@ const keySi2 = document.createElement('div');
 const keyDo3 = document.createElement('div');
 const key = `
     width: 6.66%;
-    height: 100%;
+    height: 90%;
     border-radius: 5%;
     border: 1px solid black;
     display: flex;
@@ -81,7 +81,7 @@ keySi2.style.cssText = `${key}`;
 keyDo3.style.cssText = `${key}`;
 
 piano.style.cssText = `
-    width: 80%;
+    width: 70%;
     height: 40%;
     z-index: 2;
     display: flex;
@@ -152,8 +152,8 @@ const blackKeyF2 = document.createElement('div');
 const blackKeyG2 = document.createElement('div'); 
 const blackKeyA2 = document.createElement('div'); 
 const blackKey = `background-color: black; color: white; border-bottom: solid 0.8rem black; border-left: solid 0.3rem black;
-                border-right: solid 0rem black; position: absolute; width: 4%; height: 60%; top: 0; display: flex;
-                justify-content: center; align-items: end; transition-duration: 0.05s; font-size: 12px;`;
+                border-right: solid 0rem black; position: absolute; width: 4%; height: 50%; top: 0; display: flex;
+                justify-content: center; align-items: end; transition-duration: 0.05s; font-size: 10px;`;
 
 blackKeyC1.style.cssText = `${blackKey} left: 4%;`; 
 blackKeyD1.style.cssText = `${blackKey} left: 10.8%;`; 
@@ -194,7 +194,7 @@ addEventListener('keydown', (event) => {
         case 'KeyW': {
             blackKeyC1.style.borderBottom = `solid 0rem black`; 
             blackKeyC1.style.borderLeft = `solid 0rem black`; 
-            blackKeyC1.style.height = `63.5%`; 
+            blackKeyC1.style.height = `53.5%`; 
             audioDo2.play(); 
             break
         };
@@ -202,7 +202,7 @@ addEventListener('keydown', (event) => {
         case 'KeyE': {
             blackKeyD1.style.borderBottom = `solid 0rem black`; 
             blackKeyD1.style.borderLeft = `solid 0rem black`; 
-            blackKeyD1.style.height = `63.5%`; 
+            blackKeyD1.style.height = `53.5%`; 
             audioRe1.play(); 
             break
         };
@@ -211,7 +211,7 @@ addEventListener('keydown', (event) => {
         case 'KeyT': {
             blackKeyF1.style.borderBottom = `solid 0rem black`; 
             blackKeyF1.style.borderLeft = `solid 0rem black`; 
-            blackKeyF1.style.height = `63.5%`; 
+            blackKeyF1.style.height = `53.5%`; 
             audioFa1.play(); 
             break
         };
@@ -219,7 +219,7 @@ addEventListener('keydown', (event) => {
         case 'KeyY': {
             blackKeyG1.style.borderBottom = `solid 0rem black`; 
             blackKeyG1.style.borderLeft = `solid 0rem black`; 
-            blackKeyG1.style.height = `63.5%`; 
+            blackKeyG1.style.height = `53.5%`; 
             audioSol1.play(); 
             break
         };
@@ -227,7 +227,7 @@ addEventListener('keydown', (event) => {
         case 'KeyU': {
             blackKeyA1.style.borderBottom = `solid 0rem black`; 
             blackKeyA1.style.borderLeft = `solid 0rem black`; 
-            blackKeyA1.style.height = `63.5%`;
+            blackKeyA1.style.height = `53.5%`;
             audioLya1.play(); 
             break
         };
@@ -236,7 +236,7 @@ addEventListener('keydown', (event) => {
         case 'KeyO': {
             blackKeyC2.style.borderBottom = `solid 0rem black`; 
             blackKeyC2.style.borderLeft = `solid 0rem black`; 
-            blackKeyC2.style.height = `63.5%`;
+            blackKeyC2.style.height = `53.5%`;
             audioDo2.play(); 
             break
         };
@@ -244,7 +244,7 @@ addEventListener('keydown', (event) => {
         case 'KeyP': {
             blackKeyD2.style.borderBottom = `solid 0rem black`; 
             blackKeyD2.style.borderLeft = `solid 0rem black`; 
-            blackKeyD2.style.height = `63.5%`;
+            blackKeyD2.style.height = `53.5%`;
             audioRe2.play(); 
             break
         };
@@ -253,7 +253,7 @@ addEventListener('keydown', (event) => {
         case 'BracketRight': {
             blackKeyF2.style.borderBottom = `solid 0rem black`; 
             blackKeyF2.style.borderLeft = `solid 0rem black`; 
-            blackKeyF2.style.height = `63.5%`; 
+            blackKeyF2.style.height = `53.5%`; 
             audioFa2.play(); 
             break
         };
@@ -262,7 +262,7 @@ addEventListener('keydown', (event) => {
         case 'Numpad7': {
             blackKeyG2.style.borderBottom = `solid 0rem black`; 
             blackKeyG2.style.borderLeft = `solid 0rem black`; 
-            blackKeyG2.style.height = `63.5%`; 
+            blackKeyG2.style.height = `53.5%`; 
             audioLya2.play(); 
             break
         };
@@ -270,7 +270,7 @@ addEventListener('keydown', (event) => {
         case 'Numpad8': {
             blackKeyA2.style.borderBottom = `solid 0rem black`; 
             blackKeyA2.style.borderLeft = `solid 0rem black`; 
-            blackKeyA2.style.height = `63.5%`;
+            blackKeyA2.style.height = `53.5%`;
             audioSi2.play(); 
             break
         };
@@ -284,14 +284,14 @@ addEventListener('keyup', (event) => {
         case 'KeyW': {
             blackKeyC1.style.borderBottom = `solid 0.8rem black`; 
             blackKeyC1.style.borderLeft = `solid 0.3rem black`; 
-            blackKeyC1.style.height = `60%`;
+            blackKeyC1.style.height = `50%`;
             audioDo2.load(); 
             break};
         case 'KeyS': {keyRe1.style.backgroundColor = `white`; audioRe1.load(); break};
         case 'KeyE': {
             blackKeyD1.style.borderBottom = `solid 0.8rem black`; 
             blackKeyD1.style.borderLeft = `solid 0.3rem black`; 
-            blackKeyD1.style.height = `60%`; 
+            blackKeyD1.style.height = `50%`; 
             audioRe1.load(); 
             break
         };
@@ -300,7 +300,7 @@ addEventListener('keyup', (event) => {
         case 'KeyT': {
             blackKeyF1.style.borderBottom = `solid 0.8rem black`; 
             blackKeyF1.style.borderLeft = `solid 0.3rem black`; 
-            blackKeyF1.style.height = `60%`; 
+            blackKeyF1.style.height = `50%`; 
             audioFa1.load(); 
             break
         };
@@ -308,7 +308,7 @@ addEventListener('keyup', (event) => {
         case 'KeyY': {
             blackKeyG1.style.borderBottom = `solid 0.8rem black`; 
             blackKeyG1.style.borderLeft = `solid 0.3rem black`; 
-            blackKeyG1.style.height = `60%`;
+            blackKeyG1.style.height = `50%`;
             audioSol1.load(); 
             break
         };
@@ -316,7 +316,7 @@ addEventListener('keyup', (event) => {
         case 'KeyU': {
             blackKeyA1.style.borderBottom = `solid 0.8rem black`; 
             blackKeyA1.style.borderLeft = `solid 0.3rem black`; 
-            blackKeyA1.style.height = `60%`;
+            blackKeyA1.style.height = `50%`;
             audioLya1.load(); 
             break
         };
@@ -325,7 +325,7 @@ addEventListener('keyup', (event) => {
         case 'KeyO': {
             blackKeyC2.style.borderBottom = `solid 0.8rem black`; 
             blackKeyC2.style.borderLeft = `solid 0.3rem black`; 
-            blackKeyC2.style.height = `60%`;
+            blackKeyC2.style.height = `50%`;
             audioDo2.load(); 
             break
         };
@@ -333,7 +333,7 @@ addEventListener('keyup', (event) => {
         case 'KeyP': {
             blackKeyD2.style.borderBottom = `solid 0.8rem black`; 
             blackKeyD2.style.borderLeft = `solid 0.3rem black`; 
-            blackKeyD2.style.height = `60%`; 
+            blackKeyD2.style.height = `50%`; 
             audioRe2.load(); 
             break
         };
@@ -342,7 +342,7 @@ addEventListener('keyup', (event) => {
         case 'BracketRight': {
             blackKeyF2.style.borderBottom = `solid 0.8rem black`; 
             blackKeyF2.style.borderLeft = `solid 0.3rem black`; 
-            blackKeyF2.style.height = `60%`; 
+            blackKeyF2.style.height = `50%`; 
             audioFa2.load(); 
             break
         };
@@ -351,7 +351,7 @@ addEventListener('keyup', (event) => {
         case 'Numpad7': {
             blackKeyG2.style.borderBottom = `solid 0.8rem black`; 
             blackKeyG2.style.borderLeft = `solid 0.3rem black`; 
-            blackKeyG2.style.height = `60%`;
+            blackKeyG2.style.height = `50%`;
             audioLya2.load(); 
             break
         };
@@ -359,7 +359,7 @@ addEventListener('keyup', (event) => {
         case 'Numpad8': {
             blackKeyA2.style.borderBottom = `solid 0.8rem black`; 
             blackKeyA2.style.borderLeft = `solid 0.3rem black`; 
-            blackKeyA2.style.height = `60%`;
+            blackKeyA2.style.height = `50%`;
             audioSi2.load(); 
             break
         };
