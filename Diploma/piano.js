@@ -190,7 +190,14 @@ piano.insertAdjacentElement('beforeend', blackKeyA2);
 
 addEventListener('keydown', (event) => {
     switch (event.code) {
-        case 'KeyA': {keyDo1.style.backgroundColor = `red`; audioDo1.play(); break};
+        case 'KeyA': {
+            keyDo1.style.backgroundColor = `red`;
+            keyDo1.style.border = `3px solid black`;
+            keyDo1.style.height = `91%`; 
+            keyDo1.style.width = `6.36%`; 
+            audioDo1.play(); 
+            break
+        };
         case 'KeyW': {
             blackKeyC1.style.borderBottom = `solid 0rem black`; 
             blackKeyC1.style.borderLeft = `solid 0rem black`; 
@@ -198,7 +205,14 @@ addEventListener('keydown', (event) => {
             audioDo2.play(); 
             break
         };
-        case 'KeyS': {keyRe1.style.backgroundColor = `orange`; audioRe1.play(); break};
+        case 'KeyS': {
+            keyRe1.style.backgroundColor = `orange`;
+            keyRe1.style.border = `3px solid black` ;
+            keyRe1.style.height = `91%`; 
+            keyRe1.style.width = `6.36%`; 
+            audioRe1.play(); 
+            break
+        };
         case 'KeyE': {
             blackKeyD1.style.borderBottom = `solid 0rem black`; 
             blackKeyD1.style.borderLeft = `solid 0rem black`; 
@@ -206,8 +220,22 @@ addEventListener('keydown', (event) => {
             audioRe1.play(); 
             break
         };
-        case 'KeyD': {keyMi1.style.backgroundColor = `yellow`; audioMi1.play(); break};
-        case 'KeyF': {keyFa1.style.backgroundColor = `green`; audioFa1.play(); break};
+        case 'KeyD': {
+            keyMi1.style.backgroundColor = `yellow`; 
+            keyMi1.style.border = `3px solid black` ;
+            keyMi1.style.height = `91%`; 
+            keyMi1.style.width = `6.36%`;
+            audioMi1.play(); 
+            break
+        };
+        case 'KeyF': {
+            keyFa1.style.backgroundColor = `green`; 
+            keyFa1.style.border = `3px solid black` ;
+            keyFa1.style.height = `91%`; 
+            keyFa1.style.width = `6.36%`;
+            audioFa1.play(); 
+            break
+        };
         case 'KeyT': {
             blackKeyF1.style.borderBottom = `solid 0rem black`; 
             blackKeyF1.style.borderLeft = `solid 0rem black`; 
@@ -215,7 +243,14 @@ addEventListener('keydown', (event) => {
             audioFa1.play(); 
             break
         };
-        case 'KeyG': {keySol1.style.backgroundColor = `blue`; audioSol1.play(); break};
+        case 'KeyG': {
+            keySol1.style.backgroundColor = `blue`; 
+            keySol1.style.border = `3px solid black` ;
+            keySol1.style.height = `91%`; 
+            keySol1.style.width = `6.36%`;
+            audioSol1.play(); 
+            break
+        };
         case 'KeyY': {
             blackKeyG1.style.borderBottom = `solid 0rem black`; 
             blackKeyG1.style.borderLeft = `solid 0rem black`; 
@@ -223,7 +258,14 @@ addEventListener('keydown', (event) => {
             audioSol1.play(); 
             break
         };
-        case 'KeyH': {keyLya1.style.backgroundColor = `indigo`; audioLya1.play(); break};
+        case 'KeyH': {
+            keyLya1.style.backgroundColor = `indigo`; 
+            keyLya1.style.border = `3px solid black` ;
+            keyLya1.style.height = `91%`; 
+            keyLya1.style.width = `6.36%`;
+            audioLya1.play(); 
+            break
+        };
         case 'KeyU': {
             blackKeyA1.style.borderBottom = `solid 0rem black`; 
             blackKeyA1.style.borderLeft = `solid 0rem black`; 
@@ -231,8 +273,22 @@ addEventListener('keydown', (event) => {
             audioLya1.play(); 
             break
         };
-        case 'KeyJ': {keySi1.style.backgroundColor = `violet`; audioSi1.play(); break};
-        case 'KeyK': {keyDo2.style.backgroundColor = `red`; audioDo2.play(); break};
+        case 'KeyJ': {
+            keySi1.style.backgroundColor = `violet`; 
+            keySi1.style.border = `3px solid black` ;
+            keySi1.style.height = `91%`; 
+            keySi1.style.width = `6.36%`;
+            audioSi1.play(); 
+            break
+        };
+        case 'KeyK': {
+            keyDo2.style.backgroundColor = `red`; 
+            keyDo2.style.border = `3px solid black` ;
+            keyDo2.style.height = `91%`; 
+            keyDo2.style.width = `6.36%`;
+            audioDo2.play(); 
+            break
+        };
         case 'KeyO': {
             blackKeyC2.style.borderBottom = `solid 0rem black`; 
             blackKeyC2.style.borderLeft = `solid 0rem black`; 
@@ -240,7 +296,14 @@ addEventListener('keydown', (event) => {
             audioDo2.play(); 
             break
         };
-        case 'KeyL': {keyRe2.style.backgroundColor = `orange`; audioRe2.play(); break};
+        case 'KeyL': {
+            keyRe2.style.backgroundColor = `orange`; 
+            keyRe2.style.border = `3px solid black` ;
+            keyRe2.style.height = `91%`; 
+            keyRe2.style.width = `6.36%`;
+            audioRe2.play(); 
+            break
+        };
         case 'KeyP': {
             blackKeyD2.style.borderBottom = `solid 0rem black`; 
             blackKeyD2.style.borderLeft = `solid 0rem black`; 
@@ -248,8 +311,22 @@ addEventListener('keydown', (event) => {
             audioRe2.play(); 
             break
         };
-        case 'Semicolon': {keyMi2.style.backgroundColor = `yellow`; audioMi2.play(); break};
-        case 'Quote': {keyFa2.style.backgroundColor = `green`; audioFa2.play(); break};
+        case 'Semicolon': {
+            keyMi2.style.backgroundColor = `yellow`; 
+            keyMi2.style.border = `3px solid black` ;
+            keyMi2.style.height = `91%`; 
+            keyMi2.style.width = `6.36%`;
+            audioMi2.play(); 
+            break
+        };
+        case 'Quote': {
+            keyFa2.style.backgroundColor = `green`; 
+            keyFa2.style.border = `3px solid black` ;
+            keyFa2.style.height = `91%`; 
+            keyFa2.style.width = `6.36%`;
+            audioFa2.play(); 
+            break
+        };
         case 'BracketRight': {
             blackKeyF2.style.borderBottom = `solid 0rem black`; 
             blackKeyF2.style.borderLeft = `solid 0rem black`; 
@@ -257,8 +334,22 @@ addEventListener('keydown', (event) => {
             audioFa2.play(); 
             break
         };
-        case 'Backslash': {keySol2.style.backgroundColor = `blue`; audioSol2.play(); break};
-        case 'Numpad4': {keyLya2.style.backgroundColor = `indigo`; audioLya2.play(); break};
+        case 'Backslash': {
+            keySol2.style.backgroundColor = `blue`; 
+            keySol2.style.border = `3px solid black` ;
+            keySol2.style.height = `91%`; 
+            keySol2.style.width = `6.36%`;
+            audioSol2.play(); 
+            break
+        };
+        case 'Numpad4': {
+            keyLya2.style.backgroundColor = `indigo`; 
+            keyLya2.style.border = `3px solid black` ;
+            keyLya2.style.height = `91%`; 
+            keyLya2.style.width = `6.36%`;
+            audioLya2.play(); 
+            break
+        };
         case 'Numpad7': {
             blackKeyG2.style.borderBottom = `solid 0rem black`; 
             blackKeyG2.style.borderLeft = `solid 0rem black`; 
@@ -266,7 +357,14 @@ addEventListener('keydown', (event) => {
             audioLya2.play(); 
             break
         };
-        case 'Numpad5': {keySi2.style.backgroundColor = `violet`; audioSi2.play(); break};
+        case 'Numpad5': {
+            keySi2.style.backgroundColor = `violet`; 
+            keySi2.style.border = `3px solid black` ;
+            keySi2.style.height = `91%`; 
+            keySi2.style.width = `6.36%`;
+            audioSi2.play(); 
+            break
+        };
         case 'Numpad8': {
             blackKeyA2.style.borderBottom = `solid 0rem black`; 
             blackKeyA2.style.borderLeft = `solid 0rem black`; 
@@ -274,20 +372,41 @@ addEventListener('keydown', (event) => {
             audioSi2.play(); 
             break
         };
-        case 'Numpad6': {keyDo3.style.backgroundColor = `red`; audioDo3.play(); break};
+        case 'Numpad6': {
+            keyDo3.style.backgroundColor = `red`; 
+            keyDo3.style.border = `3px solid black` ;
+            keyDo3.style.height = `91%`; 
+            keyDo3.style.width = `6.36%`;
+            audioDo3.play(); 
+            break
+        };
     }
 })
 
 addEventListener('keyup', (event) => {
     switch (event.code) {
-        case 'KeyA': {keyDo1.style.backgroundColor = `white`; audioDo1.load(); break};
+        case 'KeyA': {
+            keyDo1.style.backgroundColor = `white`;
+            keyDo1.style.border = `1px solid black`;
+            keyDo1.style.height = `90%`;
+            keyDo1.style.width = `6.66%`;
+            audioDo1.load(); 
+            break
+        };
         case 'KeyW': {
             blackKeyC1.style.borderBottom = `solid 0.8rem black`; 
             blackKeyC1.style.borderLeft = `solid 0.3rem black`; 
             blackKeyC1.style.height = `50%`;
             audioDo2.load(); 
             break};
-        case 'KeyS': {keyRe1.style.backgroundColor = `white`; audioRe1.load(); break};
+        case 'KeyS': {
+            keyRe1.style.backgroundColor = `white`;
+            keyRe1.style.border = `1px solid black`;
+            keyRe1.style.height = `90%`;
+            keyRe1.style.width = `6.66%`; 
+            audioRe1.load(); 
+            break
+        };
         case 'KeyE': {
             blackKeyD1.style.borderBottom = `solid 0.8rem black`; 
             blackKeyD1.style.borderLeft = `solid 0.3rem black`; 
@@ -295,8 +414,22 @@ addEventListener('keyup', (event) => {
             audioRe1.load(); 
             break
         };
-        case 'KeyD': {keyMi1.style.backgroundColor = `white`; audioMi1.load(); break};
-        case 'KeyF': {keyFa1.style.backgroundColor = `white`; audioFa1.load(); break};
+        case 'KeyD': {
+            keyMi1.style.backgroundColor = `white`; 
+            keyMi1.style.border = `1px solid black`;
+            keyMi1.style.height = `90%`;
+            keyMi1.style.width = `6.66%`;
+            audioMi1.load(); 
+            break
+        };
+        case 'KeyF': {
+            keyFa1.style.backgroundColor = `white`; 
+            keyFa1.style.border = `1px solid black`;
+            keyFa1.style.height = `90%`;
+            keyFa1.style.width = `6.66%`;
+            audioFa1.load(); 
+            break
+        };
         case 'KeyT': {
             blackKeyF1.style.borderBottom = `solid 0.8rem black`; 
             blackKeyF1.style.borderLeft = `solid 0.3rem black`; 
@@ -304,7 +437,14 @@ addEventListener('keyup', (event) => {
             audioFa1.load(); 
             break
         };
-        case 'KeyG': {keySol1.style.backgroundColor = `white`; audioSol1.load(); break};
+        case 'KeyG': {
+            keySol1.style.backgroundColor = `white`; 
+            keySol1.style.border = `1px solid black`;
+            keySol1.style.height = `90%`;
+            keySol1.style.width = `6.66%`;
+            audioSol1.load(); 
+            break
+        };
         case 'KeyY': {
             blackKeyG1.style.borderBottom = `solid 0.8rem black`; 
             blackKeyG1.style.borderLeft = `solid 0.3rem black`; 
@@ -312,7 +452,14 @@ addEventListener('keyup', (event) => {
             audioSol1.load(); 
             break
         };
-        case 'KeyH': {keyLya1.style.backgroundColor = `white`; audioLya1.load(); break};
+        case 'KeyH': {
+            keyLya1.style.backgroundColor = `white`; 
+            keyLya1.style.border = `1px solid black`;
+            keyLya1.style.height = `90%`;
+            keyLya1.style.width = `6.66%`;
+            audioLya1.load(); 
+            break
+        };
         case 'KeyU': {
             blackKeyA1.style.borderBottom = `solid 0.8rem black`; 
             blackKeyA1.style.borderLeft = `solid 0.3rem black`; 
@@ -320,8 +467,22 @@ addEventListener('keyup', (event) => {
             audioLya1.load(); 
             break
         };
-        case 'KeyJ': {keySi1.style.backgroundColor = `white`; audioSi1.load(); break};
-        case 'KeyK': {keyDo2.style.backgroundColor = `white`; audioDo2.load(); break};
+        case 'KeyJ': {
+            keySi1.style.backgroundColor = `white`; 
+            keySi1.style.border = `1px solid black`;
+            keySi1.style.height = `90%`;
+            keySi1.style.width = `6.66%`;
+            audioSi1.load(); 
+            break
+        };
+        case 'KeyK': {
+            keyDo2.style.backgroundColor = `white`; 
+            keyDo2.style.border = `1px solid black`;
+            keyDo2.style.height = `90%`;
+            keyDo2.style.width = `6.66%`;
+            audioDo2.load(); 
+            break
+        };
         case 'KeyO': {
             blackKeyC2.style.borderBottom = `solid 0.8rem black`; 
             blackKeyC2.style.borderLeft = `solid 0.3rem black`; 
@@ -329,7 +490,14 @@ addEventListener('keyup', (event) => {
             audioDo2.load(); 
             break
         };
-        case 'KeyL': {keyRe2.style.backgroundColor = `white`; audioRe2.load(); break};
+        case 'KeyL': {
+            keyRe2.style.backgroundColor = `white`; 
+            keyRe2.style.border = `1px solid black`;
+            keyRe2.style.height = `90%`;
+            keyRe2.style.width = `6.66%`;
+            audioRe2.load(); 
+            break
+        };
         case 'KeyP': {
             blackKeyD2.style.borderBottom = `solid 0.8rem black`; 
             blackKeyD2.style.borderLeft = `solid 0.3rem black`; 
@@ -337,8 +505,22 @@ addEventListener('keyup', (event) => {
             audioRe2.load(); 
             break
         };
-        case 'Semicolon': {keyMi2.style.backgroundColor = `white`; audioMi2.load(); break};
-        case 'Quote': {keyFa2.style.backgroundColor = `white`; audioFa2.load(); break};
+        case 'Semicolon': {
+            keyMi2.style.backgroundColor = `white`; 
+            keyMi2.style.border = `1px solid black`;
+            keyMi2.style.height = `90%`;
+            keyMi2.style.width = `6.66%`;
+            audioMi2.load(); 
+            break
+        };
+        case 'Quote': {
+            keyFa2.style.backgroundColor = `white`; 
+            keyFa2.style.border = `1px solid black`;
+            keyFa2.style.height = `90%`;
+            keyFa2.style.width = `6.66%`;
+            audioFa2.load(); 
+            break
+        };
         case 'BracketRight': {
             blackKeyF2.style.borderBottom = `solid 0.8rem black`; 
             blackKeyF2.style.borderLeft = `solid 0.3rem black`; 
@@ -346,8 +528,22 @@ addEventListener('keyup', (event) => {
             audioFa2.load(); 
             break
         };
-        case 'Backslash': {keySol2.style.backgroundColor = `white`; audioSol2.load(); break};
-        case 'Numpad4': {keyLya2.style.backgroundColor = `white`; audioLya2.load(); break};
+        case 'Backslash': {
+            keySol2.style.backgroundColor = `white`;
+            keySol2.style.border = `1px solid black`;
+            keySol2.style.height = `90%`;
+            keySol2.style.width = `6.66%`;
+            audioSol2.load(); 
+            break
+        };
+        case 'Numpad4': {
+            keyLya2.style.backgroundColor = `white`; 
+            keyLya2.style.border = `1px solid black`;
+            keyLya2.style.height = `90%`;
+            keyLya2.style.width = `6.66%`;
+            audioLya2.load(); 
+            break
+        };
         case 'Numpad7': {
             blackKeyG2.style.borderBottom = `solid 0.8rem black`; 
             blackKeyG2.style.borderLeft = `solid 0.3rem black`; 
@@ -355,7 +551,14 @@ addEventListener('keyup', (event) => {
             audioLya2.load(); 
             break
         };
-        case 'Numpad5': {keySi2.style.backgroundColor = `white`; audioSi2.load(); break};
+        case 'Numpad5': {
+            keySi2.style.backgroundColor = `white`; 
+            keySi2.style.border = `1px solid black`;
+            keySi2.style.height = `90%`;
+            keySi2.style.width = `6.66%`;
+            audioSi2.load(); 
+            break
+        };
         case 'Numpad8': {
             blackKeyA2.style.borderBottom = `solid 0.8rem black`; 
             blackKeyA2.style.borderLeft = `solid 0.3rem black`; 
@@ -363,7 +566,14 @@ addEventListener('keyup', (event) => {
             audioSi2.load(); 
             break
         };
-        case 'Numpad6': {keyDo3.style.backgroundColor = `white`; audioDo3.load(); break};
+        case 'Numpad6': {
+            keyDo3.style.backgroundColor = `white`; 
+            keyDo3.style.border = `1px solid black`;
+            keyDo3.style.height = `90%`;
+            keyDo3.style.width = `6.66%`;
+            audioDo3.load(); 
+            break
+        };
     }
 })
 
