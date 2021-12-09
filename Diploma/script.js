@@ -15,24 +15,23 @@ const clock = document.createElement('div');
 
 clock.style.cssText = `
     width: 100vw;
-    height: 50px;
+    height: 5vh;
     background-color: black;
     color: white;
     font-size: 36px;
 `;
 
 const picture = `
-    width: 1980px;
-    height: 1280px;
-    display: flex;
-    align-items: center;
+    width: 100vw;
+    height: 95vh;
     position: relative;
 `;
 const pictureContent =  `
     color: yellow;
     font-size: 44px;
-    margin-left: 15%;
     z-index: 2;
+    position: absolute;
+    transition-duration: 2s;
 `;
 const pictureShadow = `
     background-color: rgb(0 0 0 / 68%);
@@ -44,57 +43,69 @@ const pictureShadow = `
 `;
 
 const pictureFirst = document.createElement('div');
-const pictureFirstContent = document.createElement('div');
+const pictureFirstContent1 = document.createElement('div');
+const pictureFirstContent2 = document.createElement('div');
+const pictureFirstContent3 = document.createElement('a');
 const pictureFirstShadow = document.createElement('div');
 
-pictureFirst.style.cssText = `background: url(./png/png1.jpg);${picture}`;
-pictureFirstContent.style.cssText = `${pictureContent}`;
+// pictureFirstContent3.getAttribute(`href="./piano.html"`)
+pictureFirstContent3.href = `./piano.html`;
+
+pictureFirst.style.cssText = `background: url(./png/png3.jpg);${picture}`;
+pictureFirstContent1.style.cssText = `${pictureContent} top: 30%; left: -40%`;
+pictureFirstContent2.style.cssText = `${pictureContent} top: 45%; left: -40%`;
+pictureFirstContent3.style.cssText = `${pictureContent} text-decoration: none; top: 60%; left: -40%`;
 pictureFirstShadow.style.cssText = `${pictureShadow}`;
 
-const pictureSecond = document.createElement('div');
-const pictureSecondContent = document.createElement('div');
-const pictureSecondShadow = document.createElement('div');
+// const pictureSecond = document.createElement('div');
+// const pictureSecondContent = document.createElement('div');
+// const pictureSecondShadow = document.createElement('div');
 
-pictureSecond.style.cssText = `background: url(./png/png2.jpg);${picture}`;
-pictureSecondContent.style.cssText = `${pictureContent}`;
-pictureSecondShadow.style.cssText = `${pictureShadow}`;
+// pictureSecond.style.cssText = `background: url(./png/png2.jpg);${picture}`;
+// pictureSecondShadow.style.cssText = `${pictureShadow}`;
 
-const pictureThird = document.createElement('div');
-const pictureThirdContent = document.createElement('div');
-const pictureThirdShadow = document.createElement('div');
+// const pictureThird = document.createElement('div');
+// const pictureThirdContent = document.createElement('div');
+// const pictureThirdShadow = document.createElement('div');
 
-pictureThird.style.cssText = `background: url(./png/png3.jpg);${picture}`;
-pictureThirdContent.style.cssText = `${pictureContent}`;
-pictureThirdShadow.style.cssText = `${pictureShadow}`;
+// pictureThird.style.cssText = `background: url(./png/png3.jpg);${picture}`;
+// pictureThirdShadow.style.cssText = `${pictureShadow}`;
 
 body.insertAdjacentElement('beforeend', clock);
 body.insertAdjacentElement('beforeend', pictureFirst);
-body.insertAdjacentElement('beforeend', pictureSecond);
-body.insertAdjacentElement('beforeend', pictureThird);
 pictureFirst.insertAdjacentElement('beforeend', pictureFirstShadow);
-pictureFirst.insertAdjacentElement('beforeend', pictureFirstContent);
-pictureFirstContent.textContent = `Хотите научиться игре на пианино?`;
-pictureSecond.insertAdjacentElement('beforeend', pictureSecondShadow);
-pictureSecond.insertAdjacentElement('beforeend', pictureSecondContent);
-pictureSecondContent.textContent = `С нами ты сможешь достич мечты`;
-pictureThird.insertAdjacentElement('beforeend', pictureThirdContent);
-pictureThird.insertAdjacentElement('beforeend', pictureThirdShadow);
-pictureThirdContent.textContent = `Давай же начнём`;
+pictureFirst.insertAdjacentElement('beforeend', pictureFirstContent1);
+pictureFirst.insertAdjacentElement('beforeend', pictureFirstContent2);
+pictureFirst.insertAdjacentElement('beforeend', pictureFirstContent3);
+pictureFirstContent1.textContent = `Хочешь научиться игре на пианино?`;
+pictureFirstContent2.textContent = `С нами ты сможешь достич мечты!`;
+pictureFirstContent3.textContent = `Кликай сюда`;
+// pictureSecond.insertAdjacentElement('beforeend', pictureSecondShadow);
+// pictureSecond.insertAdjacentElement('beforeend', pictureSecondContent);
+// body.insertAdjacentElement('beforeend', pictureSecond);
+// body.insertAdjacentElement('beforeend', pictureThird);
+// pictureThird.insertAdjacentElement('beforeend', pictureThirdContent);
+// pictureThird.insertAdjacentElement('beforeend', pictureThirdShadow);
+
+setTimeout((() => pictureFirstContent1.style.left = `30%`), 500);
+setTimeout((() => pictureFirstContent2.style.left = `30.5%`), 1500);
+setTimeout((() => pictureFirstContent3.style.left = `40%`), 2500);
 
 function giveTime() {
-    setInterval( () => {
-        const time = new Date();
-        let hour = time.getHours();
-        let min = time.getMinutes();
+    
+    const time = new Date();
+    let hour = time.getHours();
+    let min = time.getMinutes();
 
-        if (hour < 10) {
-            hour = '0' + hour;
-        };
-        if (min < 10) {
-            min = '0' + min;
-        }
+    if (hour < 10) {
+        hour = '0' + hour;
+    };
+    if (min < 10) {
+        min = '0' + min;
+    }
 
-        clock.textContent = `${hour} : ${min}`;
-    }, 1000)
+    clock.textContent = `${hour} : ${min}`;
+    
 }
 giveTime()
+setInterval(giveTime, 1000)
