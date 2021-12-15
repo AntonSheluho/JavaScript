@@ -158,21 +158,31 @@ piano.insertAdjacentElement('beforeend', keyLya2);
 piano.insertAdjacentElement('beforeend', keySi2);
 piano.insertAdjacentElement('beforeend', keyDo3);
 
-const audioDo1 = new Audio('./audio/do.mp3');
-const audioRe1 = new Audio('./audio/re.mp3');
-const audioMi1 = new Audio('./audio/mi.mp3');
-const audioFa1 = new Audio('./audio/fa.mp3');
-const audioSol1 = new Audio('./audio/sol.mp3');
-const audioLya1 = new Audio('./audio/lya.mp3');
-const audioSi1 = new Audio('./audio/si.mp3');
-const audioDo2 = new Audio('./audio/doVtoroyOktave.mp3');
-const audioRe2 = new Audio('./audio/re.mp3');
-const audioMi2 = new Audio('./audio/mi.mp3');
-const audioFa2 = new Audio('./audio/fa.mp3');
-const audioSol2 = new Audio('./audio/sol.mp3');
-const audioLya2 = new Audio('./audio/lya.mp3');
-const audioSi2 = new Audio('./audio/si.mp3');
-const audioDo3 = new Audio('./audio/do.mp3');
+const audioDo1 = new Audio('./audio/long/do.mp3');
+const audioBlackKeyC1 = new Audio('./audio/piano-002.mp3'); 
+const audioRe1 = new Audio('./audio/long/re.mp3');
+const audioBlackKeyD1 = new Audio('./audio/piano-004.mp3'); 
+const audioMi1 = new Audio('./audio/long/mi.mp3');
+const audioFa1 = new Audio('./audio/long/fa.mp3');
+const audioBlackKeyF1 = new Audio('./audio/piano-007.mp3'); 
+const audioSol1 = new Audio('./audio/long/sol.mp3');
+const audioBlackKeyG1 = new Audio('./audio/piano-009.mp3'); 
+const audioLya1 = new Audio('./audio/long/lya.mp3');
+const audioBlackKeyA1 = new Audio('./audio/piano-011.mp3'); 
+const audioSi1 = new Audio('./audio/long/si.mp3');
+const audioDo2 = new Audio('./audio/long/doVtoroyOktave.mp3');
+const audioBlackKeyC2 = new Audio('./audio/piano 2-002.mp3'); 
+const audioRe2 = new Audio('./audio/piano 2-003.mp3');
+const audioBlackKeyD2 = new Audio('./audio/piano 2-004.mp3'); 
+const audioMi2 = new Audio('./audio/piano 2-005.mp3');
+const audioFa2 = new Audio('./audio/piano 2-006.mp3');
+const audioBlackKeyF2 = new Audio('./audio/piano 2-007.mp3'); 
+const audioSol2 = new Audio('./audio/piano 2-008.mp3');
+const audioBlackKeyG2 = new Audio('./audio/piano 2-009.mp3'); 
+const audioLya2 = new Audio('./audio/piano 2-010.mp3');
+const audioBlackKeyA2 = new Audio('./audio/piano 2-011.mp3'); 
+const audioSi2 = new Audio('./audio/piano 2-012.mp3');
+const audioDo3 = new Audio('./audio/до 3й актавы.mp3');
 
 const blackKeyC1 = document.createElement('div'); 
 const blackKeyD1 = document.createElement('div'); 
@@ -238,16 +248,16 @@ const whiteKeys = [{'KeyA': {key: keyDo1, audio: audioDo1}},
                     {'Numpad6': {key: keyDo3, audio: audioDo3}}
 ];
 
-const blackKeys = [{'KeyW': {key: blackKeyC1, audio: audioRe1}}, 
-                    {'KeyE': {key: blackKeyD1, audio: audioRe1}}, 
-                    {'KeyT': {key: blackKeyF1, audio: audioRe1}}, 
-                    {'KeyY': {key: blackKeyG1, audio: audioRe1}}, 
-                    {'KeyU': {key: blackKeyA1, audio: audioRe1}}, 
-                    {'KeyO': {key: blackKeyC2, audio: audioRe1}}, 
-                    {'KeyP': {key: blackKeyD2, audio: audioRe1}}, 
-                    {'BracketRight': {key: blackKeyF2, audio: audioRe1}}, 
-                    {'Numpad7': {key: blackKeyG2, audio: audioRe1}}, 
-                    {'Numpad8': {key: blackKeyA2, audio: audioRe1}}
+const blackKeys = [{'KeyW': {key: blackKeyC1, audio: audioBlackKeyC1}}, 
+                    {'KeyE': {key: blackKeyD1, audio: audioBlackKeyD1}}, 
+                    {'KeyT': {key: blackKeyF1, audio: audioBlackKeyF1}}, 
+                    {'KeyY': {key: blackKeyG1, audio: audioBlackKeyG1}}, 
+                    {'KeyU': {key: blackKeyA1, audio: audioBlackKeyA1}}, 
+                    {'KeyO': {key: blackKeyC2, audio: audioBlackKeyC2}}, 
+                    {'KeyP': {key: blackKeyD2, audio: audioBlackKeyD2}}, 
+                    {'BracketRight': {key: blackKeyF2, audio: audioBlackKeyF2}}, 
+                    {'Numpad7': {key: blackKeyG2, audio: audioBlackKeyG2}}, 
+                    {'Numpad8': {key: blackKeyA2, audio: audioBlackKeyA2}}
 ];
 
 
@@ -275,7 +285,57 @@ addEventListener('keydown', (event) => {
     }
 })
 
+addEventListener('mousedown', (event) => {
+    console.log(keyDo1.onmousedown)
+    forWhite:
+    for (let i = 0; i < Object.keys(whiteKeys).length; i++) {
+        if (Object.keys(whiteKeys[i]) == event.code) {
+            whiteKeys[i][event.code].key.style.backgroundColor = `bisque`;
+            whiteKeys[i][event.code].key.style.border = `3px solid black`;
+            whiteKeys[i][event.code].key.style.height = `91%`; 
+            whiteKeys[i][event.code].key.style.width = `6.36%`; 
+            whiteKeys[i][event.code].audio.play(); 
+            break forWhite
+        }
+    }
+    forBlack:
+    for (let i = 0; i < Object.keys(blackKeys).length; i++) {
+        if (Object.keys(blackKeys[i]) == event.code) {
+            blackKeys[i][event.code].key.style.borderBottom = `solid 0rem black`;
+            blackKeys[i][event.code].key.style.borderLeft = `solid 0rem black`;
+            blackKeys[i][event.code].key.style.height = `53.5%`; 
+            blackKeys[i][event.code].audio.play(); 
+            break forBlack
+        }
+    }
+});
+
 addEventListener('keyup', (event) => {
+
+    forWhite:
+    for (let i = 0; i < Object.keys(whiteKeys).length; i++) {
+        if (Object.keys(whiteKeys[i]) == event.code) {
+            whiteKeys[i][event.code].key.style.backgroundColor = `white`;
+            whiteKeys[i][event.code].key.style.border = `1px solid black`;
+            whiteKeys[i][event.code].key.style.height = `90%`; 
+            whiteKeys[i][event.code].key.style.width = `6.66%`; 
+            whiteKeys[i][event.code].audio.load(); 
+            break forWhite
+        }
+    }
+    forBlack:
+    for (let i = 0; i < Object.keys(blackKeys).length; i++) {
+        if (Object.keys(blackKeys[i]) == event.code) {
+            blackKeys[i][event.code].key.style.borderBottom = `solid 0.8rem black`;
+            blackKeys[i][event.code].key.style.borderLeft = `solid 0.3rem black`;
+            blackKeys[i][event.code].key.style.height = `50%`; 
+            blackKeys[i][event.code].audio.load(); 
+            break forBlack
+        }
+    }
+})
+
+addEventListener('mouseup', (event) => {
 
     forWhite:
     for (let i = 0; i < Object.keys(whiteKeys).length; i++) {
