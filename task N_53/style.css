@@ -1,4 +1,4 @@
-.form {
+.form1 {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
@@ -52,6 +52,64 @@
 
 
 .form__infoAboutDrinks_clos {
+    width: 70px;
+    height: 30px;
+}
+
+.form1 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.form__start2 {
+    height: 30px;
+    width: 200px;
+}
+
+.form__interes2 {
+    display: none;
+    flex-direction: column;
+    width: 40vw;
+    row-gap: 20px;
+}
+
+.button__form2 {
+    width: 232px;
+    height: 30px;
+    display: flex;
+}
+
+.alcoholicTrue2 {
+    display: grid;
+    grid-template-columns: 34px 20px;
+}
+
+.form_check2 {
+    display: flex;
+    column-gap: 20px;
+}
+
+.form__check2 {
+    height: 30px;
+    width: 300px;
+}
+
+.infoAboutDrinks2 {
+    display: none;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.form__infoAboutDrinks2 {
+    border: 1px solid black;
+    box-shadow: 0 0 10px grey;
+    height: auto;
+    width: 40vw;
+}
+
+
+.form__infoAboutDrinks_clos2 {
     width: 70px;
     height: 30px;
 }
