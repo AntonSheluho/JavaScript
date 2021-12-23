@@ -5,17 +5,13 @@ class AJAXStorage {
 
     addValue(key,value) {
         this[key] = value;
-        async function addVal(key, value) {
-            const response = await fetch('https://jsonplaceholder.typicode.com/users', {
-                method: 'POST',
-                body: {
-                    drinkName: key,
-                    drinkInfo: value
-                }
-            });
-            console.log(response.massage);
-        }
-        addVal(key,value)
+        const response = fetch('https://jsonplaceholder.typicode.com/users', {
+            method: 'POST',
+            body: {
+                drinkName: key,
+                drinkInfo: value
+            }
+        }).then(a => console.log(a)).catch(a => console.log(a));
     }
 
     async getValue(key) {
@@ -73,8 +69,12 @@ class AJAXStorage {
         const response = await fetch(`https://jsonplaceholder.typicode.com/users`,{
             method: 'GET',
         })
-        const resolve = response.json()
-        const acc = resolve.map(el => el.drinkName)
+        const resolve = await response.json()
+        const acc = resolve.filter(el => {
+            if (el.drinkName !== undefined) {
+                return el.drinkName
+            }
+        })
         return acc;
     }
 }
@@ -184,14 +184,44 @@ deleteDrink.onclick = function () {
 
 
 showAll.onclick = function () {
-    if (drinkStorage.getKeys().length != 0) {
-        showDrinks.classList.add('active');
-        showDrinkInfo.innerHTML = '';
-        showDrinkInfo.insertAdjacentHTML('beforeend', `${drinkStorage.getKeys()}`);
-    } else if (drinkStorage.getKeys()[0] == undefined && drinkStorage.getKeys().length == 0) {
-        alert('Список пуст');
+    if (Object.keys(drinkStorage).length == 0) {
+        const p = new Promise((res, rej) => {
+            res(drinkStorage.getKeys());        
+        })
+        .then(resolve => {
+            console.log(resolve)
+            if (resolve.length != 0) {
+                showDrinks.classList.add('active');
+                showDrinkInfo.innerHTML = '';
+                showDrinkInfo.insertAdjacentHTML('beforeend', `${resolve}`);
+            } else if (resolve[0] == undefined && resolve.length == 0) {
+                alert('Список пуст');
+            }
+        })
+    } else if (Object.keys(drinkStorage).length !== 0) {
+        const p = new Promise((res, rej) => {
+            res(drinkStorage.getKeys());        
+        }).then(resolve => {
+            console.log(resolve)
+            if (resolve.length != 0) {
+                showDrinks.classList.add('active');
+                showDrinkInfo.innerHTML = '';
+                showDrinkInfo.insertAdjacentHTML('beforeend', `${resolve}`);
+            }   
+        })
     }
 }
+
+
+
+
+    // if (drinkStorage.getKeys().length != 0) {
+    //     showDrinks.classList.add('active');
+    //     showDrinkInfo.innerHTML = '';
+    //     showDrinkInfo.insertAdjacentHTML('beforeend', `${drinkStorage.getKeys()}`);
+    // } else if (drinkStorage.getKeys()[0] == undefined && drinkStorage.getKeys().length == 0) {
+    //     alert('Список пуст');
+    // }
 
 showDrinksClos.onclick = function () {
     showDrinks.classList.remove('active');
@@ -248,4 +278,4 @@ function text() {
             <input id="show__drinks__clos" class="form__infoAboutDrinks_clos" type="button" value="Закрыть">
         </div>
     </form>`
-};
+}
